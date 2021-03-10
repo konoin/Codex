@@ -16,6 +16,7 @@ class CodexVC: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
         setTableView()
         title = "Кодексы Республики Беларусь"
+        
     }
    
     func setTableView() {

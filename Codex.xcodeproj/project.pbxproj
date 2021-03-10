@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		85158F7325F3ACC8001B5763 /* CodexCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85158F7225F3ACC8001B5763 /* CodexCellView.swift */; };
+		852C5A5B25F8FE9400E4302C /* criminalCodex.json in Resources */ = {isa = PBXBuildFile; fileRef = 852C5A5A25F8FE9400E4302C /* criminalCodex.json */; };
+		852C5A6025F8FF4800E4302C /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852C5A5F25F8FF4800E4302C /* Struct.swift */; };
+		852C5A6425F9259700E4302C /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852C5A6325F9259700E4302C /* Parse.swift */; };
 		8586220325F7C26900AC37FB /* CodexStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586220225F7C26900AC37FB /* CodexStruct.swift */; };
 		8588087A25F37FE9001C656F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588087925F37FE9001C656F /* AppDelegate.swift */; };
 		8588087C25F37FE9001C656F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588087B25F37FE9001C656F /* SceneDelegate.swift */; };
@@ -17,11 +20,14 @@
 		8588089225F38A27001C656F /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588089125F38A27001C656F /* CustomTabBarController.swift */; };
 		8588089525F38F87001C656F /* CodexVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588089425F38F87001C656F /* CodexVC.swift */; };
 		8588089E25F3908E001C656F /* UnifiedStateRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588089D25F3908E001C656F /* UnifiedStateRegisterVC.swift */; };
-		858808A225F390B3001C656F /* UnifiedStateRegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858808A125F390B3001C656F /* UnifiedStateRegisterInteractor.swift */; };
+		85FFE65425F950E2000FC88C /* UnifiedStateRegisterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FFE65325F950E2000FC88C /* UnifiedStateRegisterStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		85158F7225F3ACC8001B5763 /* CodexCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexCellView.swift; sourceTree = "<group>"; };
+		852C5A5A25F8FE9400E4302C /* criminalCodex.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = criminalCodex.json; sourceTree = "<group>"; };
+		852C5A5F25F8FF4800E4302C /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
+		852C5A6325F9259700E4302C /* Parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
 		8586220225F7C26900AC37FB /* CodexStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexStruct.swift; sourceTree = "<group>"; };
 		8588087625F37FE9001C656F /* Codex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Codex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8588087925F37FE9001C656F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +39,7 @@
 		8588089125F38A27001C656F /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		8588089425F38F87001C656F /* CodexVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexVC.swift; sourceTree = "<group>"; };
 		8588089D25F3908E001C656F /* UnifiedStateRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedStateRegisterVC.swift; sourceTree = "<group>"; };
-		858808A125F390B3001C656F /* UnifiedStateRegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedStateRegisterInteractor.swift; sourceTree = "<group>"; };
+		85FFE65325F950E2000FC88C /* UnifiedStateRegisterStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedStateRegisterStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,9 +53,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		852C5A5D25F8FE9D00E4302C /* json */ = {
+			isa = PBXGroup;
+			children = (
+				852C5A5A25F8FE9400E4302C /* criminalCodex.json */,
+				852C5A5F25F8FF4800E4302C /* Struct.swift */,
+				852C5A6325F9259700E4302C /* Parse.swift */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
 		8588086D25F37FE9001C656F = {
 			isa = PBXGroup;
 			children = (
+				852C5A5D25F8FE9D00E4302C /* json */,
 				8588087825F37FE9001C656F /* Codex */,
 				8588087725F37FE9001C656F /* Products */,
 			);
@@ -117,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				8588089D25F3908E001C656F /* UnifiedStateRegisterVC.swift */,
-				858808A125F390B3001C656F /* UnifiedStateRegisterInteractor.swift */,
+				85FFE65325F950E2000FC88C /* UnifiedStateRegisterStruct.swift */,
 			);
 			path = UnifiedStateRegister;
 			sourceTree = "<group>";
@@ -181,6 +198,7 @@
 			files = (
 				8588088625F37FEF001C656F /* LaunchScreen.storyboard in Resources */,
 				8588088325F37FEF001C656F /* Assets.xcassets in Resources */,
+				852C5A5B25F8FE9400E4302C /* criminalCodex.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,14 +209,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85FFE65425F950E2000FC88C /* UnifiedStateRegisterStruct.swift in Sources */,
 				8586220325F7C26900AC37FB /* CodexStruct.swift in Sources */,
 				8588087E25F37FEA001C656F /* FirstVC.swift in Sources */,
+				852C5A6025F8FF4800E4302C /* Struct.swift in Sources */,
 				8588089525F38F87001C656F /* CodexVC.swift in Sources */,
 				8588089E25F3908E001C656F /* UnifiedStateRegisterVC.swift in Sources */,
 				8588087A25F37FE9001C656F /* AppDelegate.swift in Sources */,
 				85158F7325F3ACC8001B5763 /* CodexCellView.swift in Sources */,
-				858808A225F390B3001C656F /* UnifiedStateRegisterInteractor.swift in Sources */,
 				8588089225F38A27001C656F /* CustomTabBarController.swift in Sources */,
+				852C5A6425F9259700E4302C /* Parse.swift in Sources */,
 				8588087C25F37FE9001C656F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
