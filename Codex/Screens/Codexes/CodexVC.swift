@@ -24,7 +24,7 @@ class CodexVC: UIViewController, UINavigationControllerDelegate {
         tableView.frame = self.view.frame
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(CodexCellView.self, forCellReuseIdentifier: "codexCell")
+        tableView.register(CodexCell.self, forCellReuseIdentifier: "codexCell")
         tableView.separatorStyle = .none
 
     }
@@ -36,7 +36,7 @@ extension CodexVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "codexCell", for: indexPath) as! CodexCellView
+        let cell = tableView.dequeueReusableCell(withIdentifier: "codexCell", for: indexPath) as! CodexCell
         cell.codex = codex[indexPath.row]
         return cell
     }

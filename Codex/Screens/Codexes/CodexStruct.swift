@@ -13,7 +13,9 @@ class CodexAPI {
     static func getCodex() -> [CodexItem] {
         let codex = [
         CodexItem(codexTitle: "Уголовный кодекс", codexImage: "criminal"),
-        CodexItem(codexTitle: "Гражданский кодекс", codexImage: "civil")]
+        CodexItem(codexTitle: "Гражданский кодекс", codexImage: "civil"),
+        CodexItem(codexTitle: "Труовой кодекс", codexImage: "labor"),
+        CodexItem(codexTitle: "Кодекс о браке и семье", codexImage: "family")]
         return codex
     }
 }
