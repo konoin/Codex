@@ -20,7 +20,7 @@ class UnifiedStateRegisterVC: UIViewController {
         let text = UITextField()
         text.font = .boldSystemFont(ofSize: 12)
         text.borderStyle = .roundedRect
-        text.placeholder = "Введите регистрационный номер"
+        text.placeholder = "Введите УНП"
         text.keyboardType = .numberPad
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
@@ -35,14 +35,21 @@ class UnifiedStateRegisterVC: UIViewController {
         button.backgroundColor = .lightGray
         button.setTitleColor(.black, for: .application)
         button.setTitle("Проверить", for: .normal)
-        
+        button.addTarget(self, action: #selector(changeVC), for: .touchUpInside)
         
         return button
     }()
     
+    @objc func changeVC(sender: UIButton) {
+        let infoVC = UINavigationController(rootViewController: UnifiedStateRegisterInfoVC())
+        infoVC.modalPresentationStyle = .fullScreen
+        present(infoVC, animated: true, completion: nil)
+    }
+    
+    
     let wrongLAbel: UILabel = {
         let label = UILabel()
-        label.text = "Неправильно введен регистрационный номер. Введите 9 цифр."
+        label.text = "Неправильно введен УНП. Введите 9 цифр."
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -50,7 +57,7 @@ class UnifiedStateRegisterVC: UIViewController {
     
     let notFindLabel: UILabel = {
         let notFindLAbel = UILabel()
-        notFindLAbel.text = "Введенынй Вами регистрационный номер не найден."
+        notFindLAbel.text = "Введенынй Вами УНП не найден."
         notFindLAbel.translatesAutoresizingMaskIntoConstraints = false
         
         return notFindLAbel
@@ -65,23 +72,31 @@ class UnifiedStateRegisterVC: UIViewController {
         view.addSubview(checkButton)
         setupConstraints()
         
-        let urlString = "http://egr.gov.by/egrn/API.jsp?NM=100059271"
-        let url = URL(string: urlString)
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url!) { data, response, error in
-            if let data = data {
-                let dataString = String(data: data, encoding: .utf8)
-                print(dataString)
-            }
-            
+        let urlString = "http://egr.gov.by/api/v2/egr/getShortInfoByRegNum/191295624"
+        request(urlString: urlString) { (egrRequest, error) in
         }
-        task.resume()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    func request (urlString: String, completion: @escaping([EGRRequest]?, Error?) -> Void) {
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let data = data else { return }
+                do {
+                    let egrRequests = try JSONDecoder().decode([EGRRequest].self, from: data)
+                    completion(egrRequests, nil)
+                } catch let jsonError {
+                    print("Failed to decode JSON", jsonError)
+                    completion(nil, error)
+                }
+                if let error = error {
+                    print("Some error")
+                    completion(nil, error)
+                    return
+                }
+            }
+        }.resume()
     }
-    
     func setupConstraints() {
         NSLayoutConstraint.activate([
             textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -102,7 +117,12 @@ class UnifiedStateRegisterVC: UIViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
+
+
 
 extension UnifiedStateRegisterVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -112,5 +132,10 @@ extension UnifiedStateRegisterVC: UITextFieldDelegate {
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
+        
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        print(textField)
     }
 }
