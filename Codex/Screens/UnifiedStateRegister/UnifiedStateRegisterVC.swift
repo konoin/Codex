@@ -8,7 +8,8 @@
 import UIKit
 
 class UnifiedStateRegisterVC: UIViewController {
-    
+	var selectedRequest: EGRRequest?
+	
     let minustImage: UIImageView = {
         let minustImage = UIImageView()
         minustImage.image = UIImage(named: "minust")
@@ -35,18 +36,32 @@ class UnifiedStateRegisterVC: UIViewController {
         button.backgroundColor = .lightGray
         button.setTitleColor(.black, for: .application)
         button.setTitle("Проверить", for: .normal)
-        button.addTarget(self, action: #selector(changeVC), for: .touchUpInside)
+        button.addTarget(self, action: #selector(apiRequest), for: .touchUpInside)
         
         return button
     }()
     
-    @objc func changeVC(sender: UIButton) {
-        let infoVC = UINavigationController(rootViewController: UnifiedStateRegisterInfoVC())
-        infoVC.modalPresentationStyle = .fullScreen
-        present(infoVC, animated: true, completion: nil)
+    @objc func apiRequest() {
+    
+        let unpNumber = textField.text ?? ""
+        let urlString = "http://egr.gov.by/api/v2/egr/getShortInfoByRegNum/\(unpNumber)"
+        //191295624
+        request(urlString: urlString) { (egrRequest, error) in
+            
+            self.changeVC(with: egrRequest!)
+        }
     }
     
-    
+	func changeVC(with egrRequest: EGRRequest) {
+		let viewController = UnifiedStateRegisterInfoVC()
+		viewController.request = egrRequest
+        let infoVC = UINavigationController(rootViewController: viewController)
+        infoVC.modalPresentationStyle = .fullScreen
+		//DispatchQueue.main.async {
+        present(infoVC, animated: true, completion: nil)
+	//	}
+    }
+        
     let wrongLAbel: UILabel = {
         let label = UILabel()
         label.text = "Неправильно введен УНП. Введите 9 цифр."
@@ -71,20 +86,17 @@ class UnifiedStateRegisterVC: UIViewController {
         view.addSubview(textField)
         view.addSubview(checkButton)
         setupConstraints()
-        
-        let urlString = "http://egr.gov.by/api/v2/egr/getShortInfoByRegNum/191295624"
-        request(urlString: urlString) { (egrRequest, error) in
-        }
     }
     
-    func request (urlString: String, completion: @escaping([EGRRequest]?, Error?) -> Void) {
+    func request (urlString: String, completion: @escaping(EGRRequest?, Error?) -> Void) {
         guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+       let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data else { return }
                 do {
+                    JSONDecoder().dateDecodingStrategy = .iso8601
                     let egrRequests = try JSONDecoder().decode([EGRRequest].self, from: data)
-                    completion(egrRequests, nil)
+					completion(egrRequests.first, nil)
                 } catch let jsonError {
                     print("Failed to decode JSON", jsonError)
                     completion(nil, error)
@@ -95,7 +107,9 @@ class UnifiedStateRegisterVC: UIViewController {
                     return
                 }
             }
-        }.resume()
+        }
+		
+		dataTask.resume()
     }
     func setupConstraints() {
         NSLayoutConstraint.activate([

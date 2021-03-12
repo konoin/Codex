@@ -6,28 +6,32 @@
 //
 import Foundation
 
-struct Part: Decodable {
-    var title: String
-    var section: [Section]!
+
+// MARK: - Welcome
+struct Welcome: Codable {
+    let part: [Part]
 }
 
-struct Section: Decodable {
-    var sectionnumber: String
-    var title: String
-    var chapter: [Chapter]!
+// MARK: - Part
+struct Part: Codable {
+    let title: String
+    let section: [Section]
 }
 
-struct Chapter: Decodable {
-    var chapternumber: String
-    var title: String
-    var articles: [Article]!
+// MARK: - Section
+struct Section: Codable {
+    let sectionNumber, title: String
+    let chapter: [Chapter]
 }
 
-struct Article: Decodable {
-    var id: Int
-    var title: String
-    var name: String
-    var content: String
+// MARK: - Chapter
+struct Chapter: Codable {
+    let chapterNumber, title: String
+    let articles: [Article]
 }
 
-
+// MARK: - Article
+struct Article: Codable {
+    let id: Int
+    let title, name, content: String
+}

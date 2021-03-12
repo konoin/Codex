@@ -9,9 +9,9 @@ import UIKit
 
 class UnifiedStateRegisterCell: UITableViewCell {
     
-    var information: CompanyInfoItem? {
+    var companyInfoItem: CompanyInfoItem? {
         didSet {
-            guard let companyInfoItem = information else { return }
+            guard let companyInfoItem = companyInfoItem else { return }
             nameInfoLabel.text = companyInfoItem.lineName
             infoText.text = companyInfoItem.infoCompany
         }
