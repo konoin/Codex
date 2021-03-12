@@ -7,13 +7,12 @@
 
 import Foundation
 
-
 struct EGRRequest: Codable {
-    var fullName: String? // vnaim
-    var shortName: String? // vn
-    var name: String? // vfn
-    var registrationNumber: Int? //ngrn
-    var registrationDate: String? //dfrom
+    var fullName: String // vnaim
+    var shortName: String // vn
+    var name: String // vfn
+    var registrationNumber: Int //ngrn
+    var registrationDate: String //dfrom
     var atThatMoment: Action
     
     enum CodingKeys: String, CodingKey {

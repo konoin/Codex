@@ -8,16 +8,25 @@
 import Foundation
 import UIKit
 
+struct InfoModel {
+	var fields: [CompanyInfoItem]
+	
+}
+
 class UnifiedStateRegisterInfoVC: UIViewController {
     
-    private let info = UnifiedStateRegisterStruct.getInfo()
     let tableVIew = UITableView()
-    
+	var request: EGRRequest?
+	var model: CompanyInfo?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(barButtonPressed))
         view.backgroundColor = .white
         setTableView()
+		model = CompanyInfo(request: request!)
+		tableVIew.reloadData()
+		
     }
 
     @objc func barButtonPressed() {
@@ -37,12 +46,12 @@ class UnifiedStateRegisterInfoVC: UIViewController {
 
 extension UnifiedStateRegisterInfoVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return info.count
+		return model?.infoItem.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! UnifiedStateRegisterCell
-        cell.information = info[indexPath.row]
+		cell.companyInfoItem = model?.infoItem[indexPath.row]
         return cell
         
     }
