@@ -13,18 +13,21 @@ class ChapterCell: UITableViewCell {
     let numberOfCharapterLabel: UILabel = {
         let numberOfCharapterLabel = UILabel()
         numberOfCharapterLabel.translatesAutoresizingMaskIntoConstraints = false
+        numberOfCharapterLabel.numberOfLines = 0
         return numberOfCharapterLabel
     }()
     
     let nameCharapterLabel: UILabel = {
         let numberCharapterLabel = UILabel()
         numberCharapterLabel.translatesAutoresizingMaskIntoConstraints = false
+        numberCharapterLabel.numberOfLines = 0
         return numberCharapterLabel
     }()
     
     let numberOfArticlesLabel: UILabel = {
         let numberOfArticlesLabel = UILabel()
         numberOfArticlesLabel.translatesAutoresizingMaskIntoConstraints = false
+        numberOfArticlesLabel.numberOfLines = 0
         return numberOfArticlesLabel
     }()
     
@@ -41,12 +44,16 @@ class ChapterCell: UITableViewCell {
         NSLayoutConstraint.activate([
             numberOfCharapterLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             numberOfCharapterLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            numberOfCharapterLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
             nameCharapterLabel.topAnchor.constraint(equalTo: numberOfCharapterLabel.bottomAnchor, constant: 8),
             nameCharapterLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            nameCharapterLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
             numberOfArticlesLabel.topAnchor.constraint(equalTo: nameCharapterLabel.bottomAnchor, constant: 8),
-            numberOfArticlesLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16)
+            numberOfArticlesLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            numberOfArticlesLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            numberOfArticlesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
     

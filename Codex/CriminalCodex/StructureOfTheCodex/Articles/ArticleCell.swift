@@ -10,6 +10,8 @@ import UIKit
 
 class ArticleCell: UITableViewCell {
     
+    var articleInfo: Article?
+    
     let articleTitleLabel: UILabel = {
         let articleLabel = UILabel()
         articleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +40,8 @@ class ArticleCell: UITableViewCell {
             
             articleNameLabel.topAnchor.constraint(equalTo: articleTitleLabel.bottomAnchor, constant: 8),
             articleNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            articleNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+            articleNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            articleNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
     

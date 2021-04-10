@@ -12,8 +12,6 @@ class FirstViewController: UIViewController {
     private let codex = CodexInformation.getCodex()
     let tableView = UITableView()
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(CodexCell.self, forCellReuseIdentifier: "codexCell")

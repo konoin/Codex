@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - CriminalCodex
-struct CriminalCodexLoacalJSON: Codable {
+struct CriminalCodexLocalJSON: Codable {
     let part: [Part]
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8536BCEB2621BEC5001585B4 /* academics.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8536BCEA2621BEC5001585B4 /* academics.ttf */; };
 		85ACC1D6262057D40031D93D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC19F262057D40031D93D /* AppDelegate.swift */; };
 		85ACC1D7262057D40031D93D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC1A0262057D40031D93D /* SceneDelegate.swift */; };
 		85ACC1D8262057D40031D93D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC1A3262057D40031D93D /* FirstViewController.swift */; };
@@ -23,7 +24,6 @@
 		85ACC1E4262057D40031D93D /* CriminalCodexpartStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC1BF262057D40031D93D /* CriminalCodexpartStruct.swift */; };
 		85ACC1E5262057D40031D93D /* LocalJsonStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC1C0262057D40031D93D /* LocalJsonStruct.swift */; };
 		85ACC1E6262057D40031D93D /* CriminalCodexPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC1C2262057D40031D93D /* CriminalCodexPartViewController.swift */; };
-		85ACC1E7262057D40031D93D /* SpecialSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC1C9262057D40031D93D /* SpecialSection.swift */; };
 		85ACC1E8262057D40031D93D /* GeneralSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC1CB262057D40031D93D /* GeneralSection.swift */; };
 		85ACC1E9262057D40031D93D /* ChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC1CD262057D40031D93D /* ChapterCell.swift */; };
 		85ACC1EA262057D40031D93D /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ACC1CE262057D40031D93D /* Chapter.swift */; };
@@ -36,6 +36,7 @@
 /* Begin PBXFileReference section */
 		8503A9B626205756001B0858 /* Codex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Codex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8503A9C726205759001B0858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8536BCEA2621BEC5001585B4 /* academics.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = academics.ttf; sourceTree = "<group>"; };
 		85ACC19F262057D40031D93D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85ACC1A0262057D40031D93D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		85ACC1A3262057D40031D93D /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		85ACC1BF262057D40031D93D /* CriminalCodexpartStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriminalCodexpartStruct.swift; sourceTree = "<group>"; };
 		85ACC1C0262057D40031D93D /* LocalJsonStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalJsonStruct.swift; sourceTree = "<group>"; };
 		85ACC1C2262057D40031D93D /* CriminalCodexPartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriminalCodexPartViewController.swift; sourceTree = "<group>"; };
-		85ACC1C9262057D40031D93D /* SpecialSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialSection.swift; sourceTree = "<group>"; };
 		85ACC1CB262057D40031D93D /* GeneralSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSection.swift; sourceTree = "<group>"; };
 		85ACC1CD262057D40031D93D /* ChapterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterCell.swift; sourceTree = "<group>"; };
 		85ACC1CE262057D40031D93D /* Chapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
@@ -100,6 +100,14 @@
 				8503A9C726205759001B0858 /* Info.plist */,
 			);
 			path = Codex;
+			sourceTree = "<group>";
+		};
+		8536BCE92621BEAC001585B4 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8536BCEA2621BEC5001585B4 /* academics.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		85ACC19E262057D40031D93D /* Application */ = {
@@ -201,6 +209,7 @@
 		85ACC1B0262057D40031D93D /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
+				8536BCE92621BEAC001585B4 /* Font */,
 				85ACC1B1262057D40031D93D /* Image */,
 				85ACC1B4262057D40031D93D /* JSON */,
 			);
@@ -227,11 +236,8 @@
 		85ACC1BA262057D40031D93D /* CriminalCodex */ = {
 			isa = PBXGroup;
 			children = (
-				85ACC1BB262057D40031D93D /* Managers */,
-				85ACC1C1262057D40031D93D /* Controller */,
-				85ACC1C3262057D40031D93D /* Cell */,
-				85ACC1C5262057D40031D93D /* View */,
 				85ACC1C6262057D40031D93D /* StructureOfTheCodex */,
+				85ACC1BB262057D40031D93D /* Managers */,
 			);
 			path = CriminalCodex;
 			sourceTree = "<group>";
@@ -262,43 +268,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		85ACC1C1262057D40031D93D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				85ACC1C2262057D40031D93D /* CriminalCodexPartViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		85ACC1C3262057D40031D93D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				85ACC1C4262057D40031D93D /* PartCell */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		85ACC1C4262057D40031D93D /* PartCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PartCell;
-			sourceTree = "<group>";
-		};
-		85ACC1C5262057D40031D93D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		85ACC1C6262057D40031D93D /* StructureOfTheCodex */ = {
 			isa = PBXGroup;
 			children = (
+				85ACC1D4262057D40031D93D /* Part */,
 				85ACC1C7262057D40031D93D /* Section */,
 				85ACC1CC262057D40031D93D /* Charapter */,
 				85ACC1CF262057D40031D93D /* Articles */,
-				85ACC1D4262057D40031D93D /* Part */,
 			);
 			path = StructureOfTheCodex;
 			sourceTree = "<group>";
@@ -306,26 +282,9 @@
 		85ACC1C7262057D40031D93D /* Section */ = {
 			isa = PBXGroup;
 			children = (
-				85ACC1C8262057D40031D93D /* SpecialSection */,
-				85ACC1CA262057D40031D93D /* GeneralSection */,
-			);
-			path = Section;
-			sourceTree = "<group>";
-		};
-		85ACC1C8262057D40031D93D /* SpecialSection */ = {
-			isa = PBXGroup;
-			children = (
-				85ACC1C9262057D40031D93D /* SpecialSection.swift */,
-			);
-			path = SpecialSection;
-			sourceTree = "<group>";
-		};
-		85ACC1CA262057D40031D93D /* GeneralSection */ = {
-			isa = PBXGroup;
-			children = (
 				85ACC1CB262057D40031D93D /* GeneralSection.swift */,
 			);
-			path = GeneralSection;
+			path = Section;
 			sourceTree = "<group>";
 		};
 		85ACC1CC262057D40031D93D /* Charapter */ = {
@@ -341,23 +300,16 @@
 			isa = PBXGroup;
 			children = (
 				85ACC1D0262057D40031D93D /* ArticleCell.swift */,
-				85ACC1D1262057D40031D93D /* FinalArticleView.swift */,
 				85ACC1D2262057D40031D93D /* ArticlesViewController.swift */,
-				85ACC1D3262057D40031D93D /* New Group */,
+				85ACC1D1262057D40031D93D /* FinalArticleView.swift */,
 			);
 			path = Articles;
-			sourceTree = "<group>";
-		};
-		85ACC1D3262057D40031D93D /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		85ACC1D4262057D40031D93D /* Part */ = {
 			isa = PBXGroup;
 			children = (
+				85ACC1C2262057D40031D93D /* CriminalCodexPartViewController.swift */,
 				85ACC1D5262057D40031D93D /* PartCell.swift */,
 			);
 			path = Part;
@@ -423,6 +375,7 @@
 				85ACC1DE262057D40031D93D /* labor.jpg in Resources */,
 				85ACC1DD262057D40031D93D /* criminal.jpg in Resources */,
 				85ACC1E0262057D40031D93D /* Assets.xcassets in Resources */,
+				8536BCEB2621BEC5001585B4 /* academics.ttf in Resources */,
 				85ACC1E1262057D40031D93D /* LaunchScreen.storyboard in Resources */,
 				85ACC1DF262057D40031D93D /* criminalCodex.json in Resources */,
 			);
@@ -451,7 +404,6 @@
 				85ACC1DA262057D40031D93D /* UIImageViewCodex.swift in Sources */,
 				85ACC1EC262057D40031D93D /* FinalArticleView.swift in Sources */,
 				85ACC1DB262057D40031D93D /* UILabel.swift in Sources */,
-				85ACC1E7262057D40031D93D /* SpecialSection.swift in Sources */,
 				85ACC1D7262057D40031D93D /* SceneDelegate.swift in Sources */,
 				85ACC1E6262057D40031D93D /* CriminalCodexPartViewController.swift in Sources */,
 			);

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum ObtainCriminalCodexResult {
-    case success(criminalCodex: CriminalCodexLoacalJSON)
+    case success(criminalCodex: CriminalCodexLocalJSON)
     case failure(error: Error)
 }
 
@@ -28,9 +28,8 @@ class LoadLocalCriminalCodexJsonManager {
             guard let strongSelf = self else { return }
             
             if error == nil, let data = data {
-                guard let criminalCodex = try? strongSelf.decoder.decode(CriminalCodexLoacalJSON.self, from: data) else { return }
+                guard let criminalCodex = try? strongSelf.decoder.decode(CriminalCodexLocalJSON.self, from: data) else { return }
                 result = .success(criminalCodex: criminalCodex)
-                print("\(criminalCodex.part)")
             } else {
                 result = .failure(error: error!)
                 print("Error: \(error?.localizedDescription ?? "")")
