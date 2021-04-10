@@ -16,7 +16,7 @@ class ChapterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        title = "Выбор главы"
+        title = "Главы"
         tableView.frame = view.frame
         tableView.delegate = self
         tableView.dataSource = self

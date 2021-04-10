@@ -11,13 +11,14 @@ import UIKit
 class GeneralSection: UIViewController {
     
     let tableView = UITableView()
-    var sections: [Section]? 
+    var sections: [Section]?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        title = "Общая часть"
         tableView.frame = view.frame
+        title = "Разделы"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PartCell.self, forCellReuseIdentifier: "sectionCell")

@@ -16,6 +16,7 @@ class ArticlesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        title = "Статьи"
         tableView.estimatedRowHeight = 200
         tableView.frame = view.frame
         tableView.delegate = self
